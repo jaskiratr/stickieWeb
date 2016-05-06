@@ -9,7 +9,7 @@
                 classie.addClass(messageEl, 'show');
                 function newSession() {
                     teamName = $('#q1newForm').val();
-                      window.location.href = ("https://stickie2-jaskiratr.c9users.io/" + sessionId);
+                      window.location.href = ("https://stickie.herokuapp.com/" + sessionId);
                 }setTimeout(newSession, 1500);
             }
         });
@@ -23,7 +23,7 @@
                 // var messageEl = joinForm.querySelector('.final-message');
                 // messageEl.innerHTML = 'Preparing your session...';
                 // classie.addClass(messageEl, 'show');
-                window.location.href = ("https://stickie2-jaskiratr.c9users.io/" + $('#q1joinForm').val());
+                window.location.href = ("https://stickie.herokuapp.com/" + $('#q1joinForm').val());
             }
         });
     }
@@ -75,7 +75,7 @@
         
         $("#newSessionButton").click(function() {
               $("#sessionButtons").fadeOut(400,function() {
-                  window.location.href = ("https://stickie2-jaskiratr.c9users.io/" + sessionId);  
+                  window.location.href = ("https://stickie.herokuapp.com/" + sessionId);  
               });
         });
         

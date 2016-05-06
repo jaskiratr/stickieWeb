@@ -22,38 +22,9 @@ db.once('open', function() {
     console.log("we're connected!");
 });
 
-// Database for Posts
-// var postSchema = new mongoose.Schema({
-//     timestamp: { type: Number },
-//     sessionId: { type: String },
-//     deviceId: { type: String },
-//     team: { type: String },
-//     position: {
-//         x: Number,
-//         y: Number,
-//         z: Number
-//     },
-//     noteName: { type: String },
-//     filename: { type: String },
-//     previousPost: { type: String }
-// });
-// var schemas = require('./mongo_models.js');
 var params = require('./mongo_models.js');
 var postParam = new params.postParam();
 var deviceParam = new params.deviceParam();
-// var postSchema = new schemas.postSchema();
-// var postParam = mongoose.model('postCollection', postSchema );
-// Database for Devices
-// var sessionSchema = new mongoose.Schema({
-//     timestamp: { type: Number },
-//     team: { type: String },
-//     sessionId: { type: String },
-//     deviceId: { type: String },
-//     kind: { type: String },
-//     activeNote: { type: String }
-// });
-// var sessionSchema = new schemas.sessionSchema();
-// var deviceParam = mongoose.model('sessionCollection',sessionSchema);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -106,8 +77,6 @@ io.sockets.on('connection', function(socket) {
 
         console.log("socket.id " + socket.id);
         var lastSessionTX = data.session_id;
-        
-        
        
         
         // check if session exists
@@ -116,8 +85,7 @@ io.sockets.on('connection', function(socket) {
                 // console.log("corresponding display " + docs[docs.length - 1].deviceId);
                 displayRX = docs[docs.length - 1].deviceId;
                 // console.log("displayRX " +displayRX);
-                
-                 //If new device = phone. Remove QR From Display
+                //If new device = phone. Remove QR From Display
                  var teamRX = data.team_id;
                  deviceParam.find({ sessionId: lastSessionTX, team: teamRX, kind: 'display' }).exec(function(err, docs) {
                     if(docs.length!=0){
@@ -221,30 +189,7 @@ io.sockets.on('connection', function(socket) {
                         // Send to all displays in session 
                         console.log("display RX " + displayRX);
                         io.to(displayRX).emit('activity', "postImage");
-                        // io.to(displayRX).emit('image_path', "out_" + imgName + ".png");
-                        // io.to(displayRX).emit('image_path', imgName);
-                        // Send to rest of the displays
-                        //----------------
-                        // for (var i = 0; i < docs.length; i++) {
-                        //     var displayRX = docs[i].deviceId; // corr display!!!!
-                        
-                            
-                        //     // var imgData = data.replace(/^data:image\/\w+;base64,/, "");
-                        //     // bufferImage = imgData;
-                            
-                        //     //  Write to file on server
-                        //     imgName = Date.now();
-                        //     filename = __dirname + "/public/images/out_" + imgName + ".png";
-                        //     fs.writeFile(filename, imgData, 'base64', function(err) {
-                        //         if (err) { console.log("error: " + err); }
-                        //         // send it to every display on same team
-                        //         console.log("socket image_path to "+ displayRX ) ;
-                        //         io.to(displayRX).emit('image_path', "out_" + imgName + ".png");/// NOT BEING SENT 
-                        //         // console.log(filename);
-                        //         // bufferImagePath = filename;
-                        //     });
-                        //     // io.to(displayRX).emit("bufferImage", imgData);
-                        // }
+                      
                          imgName = Date.now();
                          filename = __dirname + "/public/images/out_" + imgName + ".png";
                          fs.writeFile(filename, imgData, 'base64', function(err) {
@@ -271,12 +216,6 @@ io.sockets.on('connection', function(socket) {
                              // console.log(filename);
                              // bufferImagePath = filename;
                          });
-
-                        //----------------------
-                        
-                        
-
-
 
                         zeroing = true;
                         io.to(displayRX).emit('createGrid', 'origin'); ////
@@ -523,38 +462,6 @@ io.sockets.on('connection', function(socket) {
                 if (err) { console.log(err); }
             });
 
-
-            // update position of the note in database
-
-            // postParam.find({sessionId: lastSessionTX}).exec(function(err, docs) {
-            //     console.log("docs.length: "+docs.length);
-            //     for (var i = 0; i < docs.length; i++) {
-            //         var posts = docs[i].position;
-            //         ///find the nearest post
-            //         var x1 = imagePosition.x;
-            //         var x2 = docs[i].position.x;
-            //         var y1 = imagePosition.y;
-            //         var y2 = docs[i].position.y;
-
-            //         distance = Math.abs(Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 ));
-            //         console.log("distance "+distance);
-            //         if (distance < minDistance){
-            //             minDistance=distance;
-            //             //nearest note is docs[i]
-            //             nearestNote = docs[i].position.z;
-            //         }
-            //     }
-            //     console.log("Nearest Note: "+ nearestNote);
-            //     // Hide note
-            //     // wait for phone release
-            //     // reposition note
-
-            //     // io.to(displayTX).emit("removeNote", nearestNote); //TEMP
-            //     //Remove note from database as well
-            //     if(err){console.log(err);}    
-            // });
-            // //make it active note for the team's display
-            // docs[docs.length-1].activeNote = nearestNote;
         });
 
 

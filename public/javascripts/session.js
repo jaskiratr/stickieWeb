@@ -71,7 +71,7 @@ function connectSocket(sessionId, teamId){
     teamName = teamId;
    console.log("connecting to socket");
    try {
-    socket = io.connect("https://stickie2-jaskiratr.c9users.io:8081");
+    socket = io.connect("https://stickie.herokuapp.com:8081");
     showNotification("Connected!");
     id = {team_id: teamId, session_id: sessionId, kind: 'display'};
     socket.emit("id", id);
@@ -182,7 +182,7 @@ function connectSocket(sessionId, teamId){
     });
     
     socket.on("endSession",function(data) {
-      window.location.href = ("https://stickie2-jaskiratr.c9users.io/stats=" + data);  
+      window.location.href = ("https://stickie.herokuapp.com/stats=" + data);  
         //  $("#sessionButtons").fadeOut(400,function() {
                  
         //       });

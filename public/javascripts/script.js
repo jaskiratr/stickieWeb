@@ -53,7 +53,7 @@ if (teamName == "team1"){
 }
 
 try {
-    var socket = io.connect("https://stickie2-jaskiratr.c9users.io:8081");
+    var socket = io.connect("https://stickie.herokuapp.com:8081");
     socket.emit("device_id", device_id);
     socket.on("pos_data", function(data) {
         posx = data.args[0];
