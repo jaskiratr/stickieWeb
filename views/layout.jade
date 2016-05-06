@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/ns-default.css')
+    link(rel='stylesheet', href='/stylesheets/ns-style-growl.css')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
+    script(src="https://stickie2-jaskiratr.c9users.io:8081/socket.io/socket.io.js")
+    link(rel='stylesheet', type='text/css', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/demo.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/component.css')
+    script(src='javascripts/modernizr.custom.js')
+    script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')
+    script(src="https://d3js.org/d3.v3.min.js")
+    script(src='javascripts/jquery.qrcode-0.12.0.min.js')
+    
+    // Global variables
+    script.
+      var sessionId="#{sessionId}"
+      var teamName = "null"
+  body
+    script(src="javascripts/classie.js")
+    script(src="javascripts/notificationFx.js")
+    block content

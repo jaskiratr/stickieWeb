@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .container
+      header.codrops-header
+        h1
+          | Stickie 
+          span Access for everyone.
+      section
+        form#teamForm.simform(autocomplete='off',name='teamForm')
+          #teamForm-inner.simform-inner.teamForm-inner
+            ol.questions
+              li
+                span
+                  label(for='q1teamForm') Your team name
+                input#q1teamForm(name='q1teamForm', type='text',autofocus='autofocus' )
+            button.submit(type='submit') Send answers
+            .controls
+              button.next
+              .progress
+              span.number
+                span.number-current
+                span.number-total
+              span.error-message
+          span.final-message
+    
+  // span SessionId is  #{sessionId}
+  // h1= title
+  // p Welcome to #{title}
+  script(src="javascripts/three.min.js")
+  script(src="javascripts/renderers/Projector.js")
+  script(src="javascripts/renderers/CanvasRenderer.js")
+  script(src="javascripts/libs/stats.min.js")
+  script(src="javascripts/libs/dat.gui.min.js")
+  script(src="javascripts/session.js")
+  script(src='javascripts/stepsForm.js')
+  script(src = "") 
+  script(src='javascripts/classie.js')
+  script(src='javascripts/formClick.js')
+  
+  
+  
+  // TODO : Fix file paths in script.js
