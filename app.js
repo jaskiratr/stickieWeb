@@ -54,7 +54,7 @@ var port = process.env.PORT;
 
 app.use(express.static('public')); // Serve static files
 
-server.listen(4200);  
+server.listen(port);  
 
 // server.listen(port, process.env.IP, function(err) {
 //     if (err) {
