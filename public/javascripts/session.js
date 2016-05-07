@@ -71,7 +71,7 @@ function connectSocket(sessionId, teamId){
     teamName = teamId;
    console.log("connecting to socket");
    try {
-    socket = io.connect("https://stickie.herokuapp.com");
+    socket = io.connect("http://stickie.space");
     showNotification("Connected!");
     id = {team_id: teamId, session_id: sessionId, kind: 'display'};
     socket.emit("id", id);
@@ -182,7 +182,7 @@ function connectSocket(sessionId, teamId){
     });
     
     socket.on("endSession",function(data) {
-      window.location.href = ("https://stickie.herokuapp.com/stats=" + data);  
+      window.location.href = ("http://stickie.space/stats=" + data);  
         //  $("#sessionButtons").fadeOut(400,function() {
                  
         //       });
