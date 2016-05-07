@@ -18,7 +18,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
-mongoose.connect('mongodb://heroku_8xst6ltq:6f8botu610trdseuumgt49cjoo@ds011271.mlab.com:11271/heroku_8xst6ltq');
+mongoose.createConnection('mongodb://heroku_8xst6ltq:6f8botu610trdseuumgt49cjoo@ds011271.mlab.com:11271/heroku_8xst6ltq');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
