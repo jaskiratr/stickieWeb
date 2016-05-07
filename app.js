@@ -24,16 +24,17 @@ var mongoose = require('mongoose');
 // mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
 // mongoose.createConnection(process.env.MONGODB_URI); 
 var uristring = process.env.MONGODB_URI;
-mongoose.connect(uristring, function (err, res) {
-  if (err) {
-  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-  console.log ('Succeeded connected to: ' + uristring);
-  }
-});
-// mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
+// mongoose.connect(uristring, function (err, res) {
+//   if (err) {
+//   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+//   } else {
+//   console.log ('Succeeded connected to: ' + uristring);
+//   }
+// });
+// // mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
+var db = mongoose.createConnection(process.env.MONGODB_URI);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     // we're connected!
