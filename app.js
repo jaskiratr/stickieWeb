@@ -23,7 +23,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
 // mongoose.createConnection(process.env.MONGODB_URI); 
-mongoose.createConnection(uristring, function (err, res) {
+mongoose.createConnection(process.env.MONGODB_URI, function (err, res) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
