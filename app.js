@@ -53,7 +53,6 @@ var io = require('socket.io').listen(server);
 //     io.set("transports", ["xhr-polling"]);
 //     io.set("polling duration", 10);
 // });
-var port = normalizePort(process.env.PORT || '80');
 server.listen(80);
 // server.listen(app.get('port'));
 // var app = express();
