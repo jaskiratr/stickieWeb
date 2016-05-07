@@ -22,7 +22,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
-mongoose.connect(process.env.MONGODB_URI); 
+mongoose.createConnection(process.env.MONGODB_URI); 
 // mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
 
 var db = mongoose.connection;
