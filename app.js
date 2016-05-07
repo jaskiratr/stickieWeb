@@ -54,7 +54,8 @@ var io = require('socket.io').listen(server);
 //     io.set("polling duration", 10);
 // });
 
-server.listen(process.env.PORT || 3000);
+// server.listen(process.env.PORT || 3000);
+server.listen(app.get('port'));
 // var app = express();
 
 // var io = sio.listen(app);
