@@ -19,7 +19,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var db;
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
 // mongoose.createConnection(process.env.MONGODB_URI); 
@@ -29,16 +29,17 @@ mongoose.connect(uristring, function (err, res) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
   console.log ('Succeeded connected to: ' + uristring);
-  }
-});
-// mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
-
-var db = mongoose.connection;
+   db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     // we're connected!
     console.log("we're connected!");
 });
+  }
+});
+// mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
+
+
 
 var params = require('./mongo_models.js');
 var postParam = new params.postParam();
