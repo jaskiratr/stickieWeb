@@ -46,19 +46,23 @@ var deviceParam = new params.deviceParam();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-// var app = express();
-// var server = require('http').Server(app);
-// var io = require('socket.io')(server);
-var port = process.env.PORT;
 var app = express();
-
-var io = sio.listen(app);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 io.configure(function () {
     io.set("transports", ["xhr-polling"]);
     io.set("polling duration", 10);
 });
-// var port = 8081; // Socket IO Port : Different than process.env.IP
-app.listen(port);
+// var port = process.env.PORT;
+// var app = express();
+
+// var io = sio.listen(app);
+// io.configure(function () {
+//     io.set("transports", ["xhr-polling"]);
+//     io.set("polling duration", 10);
+// });
+// // var port = 8081; // Socket IO Port : Different than process.env.IP
+// app.listen(port);
 
 app.use(express.static('public')); // Serve static files
 
