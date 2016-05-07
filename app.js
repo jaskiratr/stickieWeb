@@ -48,12 +48,14 @@ var users = require('./routes/users');
 
 var app = express();
 var server = require('http').Server(app);
-server.listen(process.env.PORT);
+
 // var io = require('socket.io').listen(server);
 var io = require('socket.io')({
     "transports" : ["xhr-polling"],
     "polling duration" : 10
 }).listen(server);
+
+server.listen(process.env.PORT);
 // io.set('transports', ['websocket', 
 //                   'flashsocket', 
 //                   'htmlfile', 
