@@ -71,7 +71,7 @@ function connectSocket(sessionId, teamId){
     teamName = teamId;
    console.log("connecting to socket");
    try {
-    socket = io.connect("https://stickie.herokuapp.com:8081");
+    socket = io.connect("https://stickie.herokuapp.com");
     showNotification("Connected!");
     id = {team_id: teamId, session_id: sessionId, kind: 'display'};
     socket.emit("id", id);
