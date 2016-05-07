@@ -53,8 +53,15 @@ var io = require('socket.io')(server);
 var port = process.env.PORT;
 
 app.use(express.static('public')); // Serve static files
-server.listen(port, process.env.IP, function() {
-    console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
+server.listen(port, process.env.IP, function(err) {
+    if (err) {
+        console.log ('ERROR connecting to Server: ' + err);
+    } else {
+        console.log ('Succeeded connected to server: ' + uristring);
+        console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
+    }
+    
+
 });
 
 
