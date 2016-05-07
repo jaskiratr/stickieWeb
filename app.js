@@ -55,7 +55,7 @@ io.set('polling duration', 10);
 //     io.set("transports", ["xhr-polling"]);
 //     io.set("polling duration", 10);
 // });
-server.listen(3000);
+server.listen(process.env.PORT);
 // server.listen(app.get('port'));
 // var app = express();
 
