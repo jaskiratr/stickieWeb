@@ -50,7 +50,7 @@ var users = require('./routes/users');
 // var server = require('http').Server(app);
 // var io = require('socket.io')(server);
 
-var app = express.createServer();
+var app = express();
 var io = sio.listen(app);
 io.configure(function () {
     io.set("transports", ["xhr-polling"]);
