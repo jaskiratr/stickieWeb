@@ -50,13 +50,13 @@ var app = express();
 var server = require('http').Server(app);
 server.listen(process.env.PORT);
 var io = require('socket.io').listen(server);
-io.set('transports', ['websocket', 
-                  'flashsocket', 
-                  'htmlfile', 
-                  'xhr-polling', 
-                  'jsonp-polling', 
-                  'polling']);
-io.set('polling duration', 10);
+// io.set('transports', ['websocket', 
+//                   'flashsocket', 
+//                   'htmlfile', 
+//                   'xhr-polling', 
+//                   'jsonp-polling', 
+//                   'polling']);
+// io.set('polling duration', 10);
 // io.configure(function () {
 //     io.set("transports", ["xhr-polling"]);
 //     io.set("polling duration", 10);
