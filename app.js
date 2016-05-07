@@ -53,7 +53,7 @@ var io = require('socket.io').listen(server);
 //     io.set("transports", ["xhr-polling"]);
 //     io.set("polling duration", 10);
 // });
-server.listen(3000,process.env.IP);
+server.listen(3000);
 // server.listen(app.get('port'));
 // var app = express();
 
