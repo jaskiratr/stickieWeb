@@ -66,23 +66,23 @@ mongoose.connect(uristring, function (err, res) {
 //     console.log("we're connected!");
 // });
 
-// var params = require('./mongo_models.js');
-// var postParam = new params.postParam();
-// var deviceParam = new params.deviceParam();
+var params = require('./mongo_models.js');
+var postParam = new params.postParam();
+var deviceParam = new params.deviceParam();
 
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
-// var app = express();
-// var server = require('http').Server(app);
-// var io = require('socket.io')(server);
-// var port = 8081; // Socket IO Port : Different than process.env.IP
-// // var port = process.env.PORT;
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var port = 8081; // Socket IO Port : Different than process.env.IP
+// var port = process.env.PORT;
 
-// app.use(express.static('public')); // Serve static files
-// server.listen(port, process.env.IP, function() {
-//     console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
-// });
+app.use(express.static('public')); // Serve static files
+server.listen(port, process.env.IP, function() {
+    console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
+});
 
 
 // ///////
