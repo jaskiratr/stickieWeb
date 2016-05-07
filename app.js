@@ -4,7 +4,7 @@
 
 console.log("process.env.PORT " + process.env.PORT);
 console.log("process.env.IP " + process.env.IP);
-console.log("process.env.MONGOLAB_URI " + process.env.MONGOLAB_URI);
+console.log("process.env.MONGODB_URI " + process.env.MONGODB_URI);
 
 var http = require("http");
 var sio = require("socket.io");
@@ -22,8 +22,9 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
-mongoose.createConnection('mongodb://heroku_8xst6ltq:6f8botu610trdseuumgt49cjoo@ds011271.mlab.com:11271/heroku_8xst6ltq'); 
-// mongoose.createConnection(process.env.MONGOLAB_URI); 
+mongoose.createConnection(MONGODB_URI); 
+// mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
+
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
