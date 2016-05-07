@@ -10,7 +10,6 @@ var http = require("http");
 var sio = require("socket.io");
 var math = require('mathjs');
 var jsonfile = require('jsonfile');
-var util = require('util');
 var fs = require('fs');
 var fsPlayback = require('fs');
 var express = require('express');
