@@ -1,8 +1,16 @@
 var express = require('express');
 var router = express.Router();
-
+var uristring = process.env.MONGODB_URI;
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
+// mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
+var uristring = process.env.MONGODB_URI;
+mongoose.createConnection(uristring, function (err, res) {
+  if (err) {
+  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+  console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
