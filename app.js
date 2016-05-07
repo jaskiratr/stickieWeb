@@ -45,6 +45,7 @@ server.listen(port, process.env.IP, function() {
     console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
 });
 console.log("process.env.PORT " + process.env.PORT);
+console.log("process.env.IP " + process.env.IP);
 
 ///////
 
