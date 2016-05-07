@@ -2,6 +2,10 @@
 
 //  config:set IP=http://app.mydomain.com
 
+console.log("process.env.PORT " + process.env.PORT);
+console.log("process.env.IP " + process.env.IP);
+console.log("process.env.MONGOLAB_URI " + process.env.MONGOLAB_URI);
+
 var http = require("http");
 var sio = require("socket.io");
 var math = require('mathjs');
@@ -43,8 +47,7 @@ app.use(express.static('public')); // Serve static files
 server.listen(port, process.env.IP, function() {
     console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
 });
-console.log("process.env.PORT " + process.env.PORT);
-console.log("process.env.IP " + process.env.IP);
+
 
 ///////
 
