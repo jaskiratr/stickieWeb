@@ -49,7 +49,12 @@ var users = require('./routes/users');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
-io.set('transports', ['xhr-polling']);
+io.set('transports', ['websocket', 
+                  'flashsocket', 
+                  'htmlfile', 
+                  'xhr-polling', 
+                  'jsonp-polling', 
+                  'polling']);
 io.set('polling duration', 10);
 // io.configure(function () {
 //     io.set("transports", ["xhr-polling"]);
