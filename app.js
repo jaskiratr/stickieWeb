@@ -53,7 +53,8 @@ var io = require('socket.io').listen(server);
 //     io.set("transports", ["xhr-polling"]);
 //     io.set("polling duration", 10);
 // });
-var port = process.env.PORT;
+
+server.listen(process.env.PORT || 3000);
 // var app = express();
 
 // var io = sio.listen(app);
@@ -66,7 +67,7 @@ var port = process.env.PORT;
 
 app.use(express.static('public')); // Serve static files
 
-server.listen(port);  
+ 
 
 // server.listen(port, process.env.IP, function(err) {
 //     if (err) {
