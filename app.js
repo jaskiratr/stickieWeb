@@ -49,15 +49,16 @@ var users = require('./routes/users');
 // var app = express();
 // var server = require('http').Server(app);
 // var io = require('socket.io')(server);
-
+var port = process.env.PORT;
 var app = express();
+
 var io = sio.listen(app);
 io.configure(function () {
     io.set("transports", ["xhr-polling"]);
     io.set("polling duration", 10);
 });
 // var port = 8081; // Socket IO Port : Different than process.env.IP
-var port = process.env.PORT;
+app.listen(port);
 
 app.use(express.static('public')); // Serve static files
 
