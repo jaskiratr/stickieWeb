@@ -20,8 +20,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://' + process.env.IP + '/postdb'); // DOUBLE CHECK
-// mongoose.createConnection(process.env.MONGODB_URI); 
+
 var uristring = process.env.MONGODB_URI;
 mongoose.connect(uristring, function (err, res) {
   if (err) {
@@ -30,7 +29,6 @@ mongoose.connect(uristring, function (err, res) {
   console.log ('Succeeded connected to: ' + uristring);
   }
 });
-// mongo ds011271.mlab.com:11271/heroku_8xst6ltq -u heroku_8xst6ltq -p 6f8botu610trdseuumgt49cjoo
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -56,41 +54,8 @@ var io = require('socket.io')({
 }).listen(server);
 
 server.listen(process.env.PORT);
-// io.set('transports', ['websocket', 
-//                   'flashsocket', 
-//                   'htmlfile', 
-//                   'xhr-polling', 
-//                   'jsonp-polling', 
-//                   'polling']);
-// io.set('polling duration', 10);
-// io.configure(function () {
-//     io.set("transports", ["xhr-polling"]);
-//     io.set("polling duration", 10);
-// });
-
-// server.listen(app.get('port'));
-// var app = express();
-
-// var io = sio.listen(app);
-// io.configure(function () {
-//     io.set("transports", ["xhr-polling"]);
-//     io.set("polling duration", 10);
-// });
-// // var port = 8081; // Socket IO Port : Different than process.env.IP
-// app.listen(port);
-
 app.use(express.static('public')); // Serve static files
 
- 
-
-// server.listen(port, process.env.IP, function(err) {
-//     if (err) {
-//         console.log ('ERROR connecting to Server: ' + err);
-//     } else {
-//         console.log ('Succeeded connected to server: ' + uristring);
-//         console.log('Updated : Server listening at port ' + process.env.IP + " " + port);
-//     }
-// });
 
 
 ///////
