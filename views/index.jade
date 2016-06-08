@@ -4,7 +4,7 @@
 //   h1= title
 //   p Welcome to #{title}
 //   p SessionId is  #{sessionId}
-//   a(href='http://stickie.space/'+ sessionId) New Session
+//   a(href='https://stickie2-jaskiratr.c9users.io/'+ sessionId) New Session
 //   br
 //   a(href='http://google.com') Enter Existing/Previous session
 
@@ -16,6 +16,7 @@ block content
         h1
           | Stickie 
           span Access for everyone.
+        p.oneLiner Stickie is a display and phone agnostic platform, which people can use to remotely perform sticky note exercises over the web.
       section#sessionButtons.color-2
         button#newSessionButton.btn.btn-2.btn-2a New Session (n)
         button#joinSessionButton.btn.btn-2.btn-2a Join Session (j)
@@ -58,6 +59,11 @@ block content
                 span.number-total
               span.error-message
           span.final-message
+      section.footer
+        h3: a(href="https://github.com/jaskiratr/Stickie-Code/tree/master/Android%20Apk" , target="_blank") Android: Download APK
+        h3: a(href="https://github.com/jaskiratr/stickieWeb", target="_blank") Source Code
+        h5 (Full Screen Recommended)
+
     script(src='javascripts/stepsForm.js')
     script(src = "") 
     script(src='javascripts/classie.js')
